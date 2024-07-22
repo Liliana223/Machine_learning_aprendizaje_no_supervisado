@@ -1,8 +1,8 @@
 # Aprendizaje_supervisado_y_no_supervisado
 
-En este repositorio se aplica métodos de aprendizaje no supervisado y métodos de aprendizaje supervisado en R
+*En este repositorio se aplica métodos de aprendizaje no supervisado y métodos de aprendizaje supervisado en R*
 
-*Carga de librerias*
+Carga de librerias
 ```
 library(readr)
 library(dplyr)
@@ -11,78 +11,112 @@ library(datasets)
 ```
 
 ## Depurado del conjunto de datos:
+```
 data(iris)
 data_to_clean = select(iris, -Species)
+```
 
-*Verificar las dimensiones del conjunto de datos*
+Verificar las dimensiones del conjunto de datos
+```
 print(paste("El conjunto de datos tiene", nrow(data_to_clean), "filas y", ncol(data_to_clean), "columnas."))
+```
 
 **Identificación de Valores no Numéricos**
 
-*Identificar qué columnas no son numéricas*
-*Usamos sapply para aplicar una función a cada columna y luego identificamos las que no son numéricas*
+Identificar qué columnas no son numéricas
+Usamos sapply para aplicar una función a cada columna y luego identificamos las que no son numéricas
+```
 non_numeric_columns <- sapply(data_to_clean, function(x) !is.numeric(x))
+```
 
-*Imprimir los nombres de las columnas no numéricas*
+Imprimir los nombres de las columnas no numéricas
+```
 non_numeric_names <- names(data_to_clean)[non_numeric_columns]
 print(non_numeric_names)
+```
 
-*Verificar los datos almacenados como texto*
+Verificar los datos almacenados como texto
+```
 data_to_clean$CFB
+```
 
-*Visualizar el tipo de cada una de las columnas no numéricas*
+Visualizar el tipo de cada una de las columnas no numéricas
+```
 non_numeric_types <- sapply(data_to_clean[non_numeric_columns], class)
 print(non_numeric_types)
+```
 
-*Transformar números almacenados como texto a datos numéricos*
-*asumiendo que se necesita revisar todas las columnas y convertir donde sea aplicable*
+Transformar números almacenados como texto a datos numéricos
+asumiendo que se necesita revisar todas las columnas y convertir donde sea aplicable
+```
 data_to_clean <- data_to_clean %>%
   mutate(across(where(is.character), ~parse_number(.))) # Convierte texto a numéricos
+```
 
-*Verificar los cambios*
+Verificar los cambios
+```
 non_numeric_columns <- sapply(data_to_clean, function(x) !is.numeric(x))
 non_numeric_names <- names(data_to_clean)[non_numeric_columns]
 print(non_numeric_names)
+```
 
 **Identificación de Datos Nulos**
 
-*Identificar valores nulos en el conjunto de datos*
-*Calcular el número de valores NA por columna*
+Identificar valores nulos en el conjunto de datos
+Calcular el número de valores NA por columna
+```
 na_count_per_column <- sapply(data_to_clean, function(x) sum(is.na(x)))
+```
 
-*Para obtener una visión más general, podemos calcular el total de NAs en todo el conjunto de datos*
+Para obtener una visión más general, podemos calcular el total de NAs en todo el conjunto de datos
+```
 total_nas <- sum(na_count_per_column)
 print(paste("Total de valores NA en el conjunto de datos:", total_nas))
+```
 
-*Para ver las filas que contienen al menos un NA, puedes usar:*
+Para ver las filas que contienen al menos un NA, puedes usar:
+```
 rows_with_na <- which(rowSums(is.na(data_to_clean)) > 0)
 print(paste("Hay", length(rows_with_na), "filas con al menos un valor NA."))
+```
 
 **Identificación de Datos Infinitos**
 
-*Identificar valores nulos en el conjunto de datos*
-*Calcular el número de valores NA por columna*
+Identificar valores nulos en el conjunto de datos
+Calcular el número de valores NA por columna
+```
 inf_count_per_column <- sapply(data_to_clean, function(x) sum(is.infinite(x)))
+```
 
-*Para obtener una visión más general, podemos calcular el total de NAs en todo el conjunto de datos*
+Para obtener una visión más general, podemos calcular el total de NAs en todo el conjunto de datos
+```
 total_inf <- sum(inf_count_per_column)
 print(paste("Total de valores infinitos en el conjunto de datos:", total_inf))
+```
 
-*Verificar los datos NA y eliminarlos*
+Verificar los datos NA y eliminarlos
+```
 colSums(is.na(data_to_clean))
 df_complete <- data_to_clean[complete.cases(data_to_clean),]
 any(is.na(df_complete))
+```
 
 **Normalización de Datos**
 
-*Escalar cada columna para que tenga media ~0 y desviación estándar ~1*
+Escalar cada columna para que tenga media ~0 y desviación estándar ~1
+```
 normalized_data <- as.data.frame(lapply(df_complete, scale))
+```
 
-*Añadir de nuevo la columna "Species"*
+Añadir de nuevo la columna "Species"
+```
 normalized_data$Species <- iris$Species
+```
 
-*Guardar los datos normalizados en un fichero CSV*
+Guardar los datos normalizados en un fichero CSV
+```
 write.csv(normalized_data, "iris.csv", row.names = FALSE)
+```
 
 ## Implementación de tres métodos de aprendizaje no supervisado
 
