@@ -466,20 +466,15 @@ ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
   ylab("PC2") +
   theme_minimal()
 ```
-
+```
+Model         Accuracy     Kappa
+1 SVM            0.9555556  0.9333333
+2 SVM Gaussiano  0.8888889  0.8333333
+3 Random Forest  0.9111111  0.8666667
+4 Naive Bayes    0.8666667  0.8000000
+```
 ### Conclusiones:
-
-```
-**Model         Accuracy     Kappa**
- **1 SVM            0.9555556  0.9333333**
- **2 SVM Gaussiano  0.8888889  0.8333333**
- **3 Random Forest  0.9111111  0.8666667**
- **4 Naive Bayes    0.8666667  0.8000000**
-```
-
 *Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
-  
-*El modelo SVM tiene la mayor precisión y el mayor valor de kappa, siendo el más efectivo y consistente de todos los modelos.*
 
-*El modelo Naive Bayes tiene los valores Accuracy y Kappa más bajos de todos los modelos comparados, sin embargo puede considerarse*
-*razonablemente bueno dependiendo del contexto.*
+- *El modelo SVM tiene la mayor precisión y el mayor valor de kappa, siendo el más efectivo y consistente de todos los modelos.*
+- *El modelo Naive Bayes tiene los valores Accuracy y Kappa más bajos de todos los modelos comparados, sin embargo puede considerarse razonablemente bueno dependiendo del contexto.*
