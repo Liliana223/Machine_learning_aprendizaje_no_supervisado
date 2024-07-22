@@ -131,7 +131,7 @@ write.csv(normalized_data, "iris.csv", row.names = FALSE)
  - *No es siempre intuitivo interpretar los componentes o variables transformadas.*
 
 
-Cargar los paquetes necesarios MDS y para realizar PCA*
+Cargar los paquetes necesarios
 ```
 library(stats)   # Para la función cmdscale (MDS)
 library(ggplot2) # Para graficar
