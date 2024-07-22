@@ -282,7 +282,7 @@ fig
 *PCA:*
 *- Ventajas: El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos*
 *- Desventajas: El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas,
--Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
+*- Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
 
 *CONCLUSION:*
 
