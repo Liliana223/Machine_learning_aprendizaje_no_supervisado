@@ -3,10 +3,10 @@
 En este repositorio se aplica métodos de aprendizaje no supervisado y métodos de aprendizaje supervisado en R
 
 *Carga de librerias*
-library(readr) 
+``library(readr)
 library(dplyr)
 library(tidyr)
-library(datasets)
+library(datasets)``
 
 ## Depurado del conjunto de datos:
 data(iris)
@@ -318,7 +318,7 @@ evaluate_model <- function(model_func, model_name, data_train1, data_test1) {
   return(list(confusion_matrix1 = confusion_matrix1, kappa = kappa_value1, accuracy1 = accuracy1, predictions1 = predictions1))
 }
 
-# Definir las funciones de los modelos
+**Definir las funciones de los modelos**
 svm_model1 <- function(data) {
   svm(Species ~ ., data = data, kernel = "linear")
 }
