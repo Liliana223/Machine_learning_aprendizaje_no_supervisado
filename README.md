@@ -175,6 +175,7 @@ ggplot(data_2d, aes(x = V1, y = V2, color = Species)) +
   xlab("Componente 1") +
   ylab("Componente 2")
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/MDS2.png)
 
 Realizar MDS para 3 componentes
 ```
@@ -457,8 +458,16 @@ results1 <- data.frame(
 print(results1)
 ```
 
+```
+Model         Accuracy     Kappa
+1 SVM            0.9555556  0.9333333
+2 SVM Gaussiano  0.8888889  0.8333333
+3 Random Forest  0.9111111  0.8666667
+4 Naive Bayes    0.8666667  0.8000000
+```
+
 ### Visualizar los resultados
-Crear una gráfica de los datos originales con los valores predichos
+Crear una gráfica de los datos originales con los valores predichos por SVM
 ```
 plot_data1 <- data_test1
 plot_data1$Predicted <- results_svm1$predictions1
@@ -470,13 +479,7 @@ ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
   ylab("PC2") +
   theme_minimal()
 ```
-```
-Model         Accuracy     Kappa
-1 SVM            0.9555556  0.9333333
-2 SVM Gaussiano  0.8888889  0.8333333
-3 Random Forest  0.9111111  0.8666667
-4 Naive Bayes    0.8666667  0.8000000
-```
+
 ### Conclusiones:
 *Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
 
