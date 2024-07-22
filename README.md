@@ -122,9 +122,9 @@ write.csv(normalized_data, "iris.csv", row.names = FALSE)
 
 ### Reducción de Dimensionalidad:
 
-*Ventajas:
--Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado.
--Elimina ruido y reduce el riesgo de sobreajuste.*
+*Ventajas:*
+ - *Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado.*
+ - *Elimina ruido y reduce el riesgo de sobreajuste.*
 
 *Desventajas:
 -Puede perder información importante en el proceso de reducción.
