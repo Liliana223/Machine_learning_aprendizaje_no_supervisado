@@ -280,11 +280,11 @@ fig
 ```
 
 *PCA:*
- - *Ventajas:
+ - *Ventajas:*
    - *El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos.*
- - *Desventajas:
-  - *El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas.*
-  - *Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
+ - *Desventajas:*
+   - *El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas.*
+   - *Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
 
 *CONCLUSION:*
 *Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.*
@@ -359,7 +359,7 @@ fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colo
 fig
 ```
 
-*Isomap: *
+*Isomap:*
 - *Ventajas:*
   - *Es eficaz con datos cuyas variables mantienen relaciones no lineales.*
 - *Desventajas:*
