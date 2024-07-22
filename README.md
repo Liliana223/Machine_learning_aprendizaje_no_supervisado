@@ -371,25 +371,33 @@ fig
 
 ## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión precisión, sensibilidad, especificidad. 
 
-**Usando las dimensiones obtenidas por PCA**
+### Usando las dimensiones obtenidas por PCA
 
-*Cargar las librerías necesarias*
+Cargar las librerías necesarias
+```
 library(e1071)  # Para SVM, SVM Gaussiano y Naive Bayes
 library(caret)  # Para la división de los datos y evaluación del modelo
 library(randomForest)  # Para Random Forest
-
+```
+```
 superv <- data_3d1
+```
 
-*Convertir la columna "Species" a factor*
+Convertir la columna "Species" a factor
+```
 superv$Species <- as.factor(superv$Species)
+```
 
-*Dividir el dataset en conjuntos de entrenamiento y prueba*
+Dividir el dataset en conjuntos de entrenamiento y prueba
+```
 set.seed(123)  # Para reproducibilidad
 trainIndex <- createDataPartition(superv$Species, p = 0.7, list = FALSE)
 data_train1 <- superv[trainIndex, ]
 data_test1 <- superv[-trainIndex, ]
+```
 
-*Función para entrenar y evaluar un modelo*
+Función para entrenar y evaluar un modelo
+```
 evaluate_model <- function(model_func, model_name, data_train1, data_test1) {
   model1 <- model_func(data_train1)
   predictions1 <- predict(model1, data_test1)
@@ -405,8 +413,10 @@ evaluate_model <- function(model_func, model_name, data_train1, data_test1) {
   
   return(list(confusion_matrix1 = confusion_matrix1, kappa = kappa_value1, accuracy1 = accuracy1, predictions1 = predictions1))
 }
+```
 
-**Definir las funciones de los modelos**
+### Definir las funciones de los modelos
+```
 svm_model1 <- function(data) {
   svm(Species ~ ., data = data, kernel = "linear")
 }
@@ -422,14 +432,18 @@ random_forest_model1 <- function(data) {
 naive_bayes_model1 <- function(data) {
   naiveBayes(Species ~ ., data = data)
 }
+```
 
-*Evaluar los modelos*
+Evaluar los modelos
+```
 results_svm1 <- evaluate_model(svm_model1, "SVM", data_train1, data_test1)
 results_svm_gaussian1 <- evaluate_model(svm_gaussian_model1, "SVM Gaussiano", data_train1, data_test1)
 results_random_forest1 <- evaluate_model(random_forest_model1, "Random Forest", data_train1, data_test1)
 results_naive_bayes1 <- evaluate_model(naive_bayes_model1, "Naive Bayes", data_train1, data_test1)
+```
 
-*Comparar los resultados*
+Comparar los resultados
+```
 results1 <- data.frame(
   Model = c("SVM", "SVM Gaussiano", "Random Forest", "Naive Bayes"),
   Accuracy = c(results_svm1$accuracy1, results_svm_gaussian1$accuracy1, results_random_forest1$accuracy1, results_naive_bayes1$accuracy1),
@@ -437,10 +451,11 @@ results1 <- data.frame(
 )
 
 print(results1)
+```
 
-*Visualizar los resultados*
-*Crear una gráfica de los datos originales con los valores predichos*
-
+### Visualizar los resultados
+Crear una gráfica de los datos originales con los valores predichos
+```
 plot_data1 <- data_test1
 plot_data1$Predicted <- results_svm1$predictions1
 
@@ -450,14 +465,15 @@ ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
   xlab("PC1") +
   ylab("PC2") +
   theme_minimal()
+```
 
-**Conclusiones:**
+### Conclusiones:
 
 **Model         Accuracy     Kappa**
-**1 SVM            0.9555556  0.9333333**
-**2 SVM Gaussiano  0.8888889  0.8333333**
-**3 Random Forest  0.9111111  0.8666667**
-**4 Naive Bayes    0.8666667  0.8000000**
+ **1 SVM            0.9555556  0.9333333**
+ **2 SVM Gaussiano  0.8888889  0.8333333**
+ **3 Random Forest  0.9111111  0.8666667**
+ **4 Naive Bayes    0.8666667  0.8000000**
 
 *Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
   
