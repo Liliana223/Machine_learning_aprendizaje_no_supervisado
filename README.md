@@ -21,7 +21,7 @@ Verificar las dimensiones del conjunto de datos
 print(paste("El conjunto de datos tiene", nrow(data_to_clean), "filas y", ncol(data_to_clean), "columnas."))
 ```
 
-**Identificación de Valores no Numéricos**
+### Identificación de Valores no Numéricos
 
 Identificar qué columnas no son numéricas
 Usamos sapply para aplicar una función a cada columna y luego identificamos las que no son numéricas
@@ -60,7 +60,7 @@ non_numeric_names <- names(data_to_clean)[non_numeric_columns]
 print(non_numeric_names)
 ```
 
-**Identificación de Datos Nulos**
+### Identificación de Datos Nulos
 
 Identificar valores nulos en el conjunto de datos
 Calcular el número de valores NA por columna
@@ -80,7 +80,7 @@ rows_with_na <- which(rowSums(is.na(data_to_clean)) > 0)
 print(paste("Hay", length(rows_with_na), "filas con al menos un valor NA."))
 ```
 
-**Identificación de Datos Infinitos**
+### Identificación de Datos Infinitos
 
 Identificar valores nulos en el conjunto de datos
 Calcular el número de valores NA por columna
@@ -101,7 +101,7 @@ df_complete <- data_to_clean[complete.cases(data_to_clean),]
 any(is.na(df_complete))
 ```
 
-**Normalización de Datos**
+### Normalización de Datos
 
 Escalar cada columna para que tenga media ~0 y desviación estándar ~1
 ```
