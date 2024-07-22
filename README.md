@@ -199,6 +199,7 @@ fig <- plot_ly(data_3d, x = ~V1, y = ~V2, z = ~V3, color = ~Species, colors = c(
 
 fig
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/MDS3.png)
 
 Calculo de la varianza explicada empleando el estrés
 Fórmula del estrés: sqrt(sum((dist(originales) - dist(proyectadas))^2) / sum(dist(originales)^2))
@@ -244,7 +245,7 @@ print(summary(pca_result))
 
 *Con PCA tendríamos representado alrededor del 99% de los datos con tres componentes principales.*
 
-PCA para 2 componentes principales
+PCA para 2 componentes principales.
 Preparar los datos para graficar
 
 ```
@@ -260,11 +261,12 @@ ggplot(data_2d1, aes(x = PC1, y = PC2, color = Species)) +
   xlab("Primer Componente Principal") +
   ylab("Segundo Componente Principal")
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/PCA2.png)
 
-PCA para 3 componentes principales
+PCA para 3 componentes principales.
+Preparar los datos para graficar
 
 ```
-Preparar los datos para graficar*
 data_3d1 <- data.frame(pca_result$x[,1:3])
 data_3d1$Species <- data$Species
 ```
@@ -279,6 +281,7 @@ fig <- plot_ly(data_3d1, x = ~PC1, y = ~PC2, z = ~PC3, color = ~Species, colors 
          title = 'PCA - 3 Componentes Principales')
 fig
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/PCA3.png)
 
 *PCA:*
  - *Ventajas:*
@@ -352,7 +355,8 @@ ggplot(data_2d2, aes(x = Dim1, y = Dim2, color = Species)) +
   xlab("Componente 1") +
   ylab("Componente 2")
 ```
-  
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/ISOMAP2.png)
+
 Usar plotly para un gráfico interactivo en 3D
 ```
 fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colors = c('#BF382A', '#0C4B8E')) %>%
@@ -363,6 +367,7 @@ fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colo
          title = 'Isomap - 3 Dimensiones')
 fig
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/ISOMAP3.png)
 
 *Isomap:*
 - *Ventajas:*
@@ -474,11 +479,12 @@ plot_data1$Predicted <- results_svm1$predictions1
 
 ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
   geom_point(aes(shape = Predicted), size = 3) +
-  ggtitle("Predicciones del Modelo PCA en el Conjunto de Prueba") +
+  ggtitle("Predicciones del Modelo SVM en el Conjunto de Prueba") +
   xlab("PC1") +
   ylab("PC2") +
   theme_minimal()
 ```
+![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/SVM2.png)
 
 ### Conclusiones:
 *Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
