@@ -126,9 +126,9 @@ write.csv(normalized_data, "iris.csv", row.names = FALSE)
  - *Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado.*
  - *Elimina ruido y reduce el riesgo de sobreajuste.*
 
-*Desventajas:
--Puede perder información importante en el proceso de reducción.
--No es siempre intuitivo interpretar los componentes o variables transformadas.*
+*Desventajas:*
+ - *Puede perder información importante en el proceso de reducción.*
+ - *No es siempre intuitivo interpretar los componentes o variables transformadas.*
 
 
 Cargar los paquetes necesarios MDS y para realizar PCA*
@@ -214,14 +214,14 @@ print(paste("Estrés para 3 componentes:", stress_3d))
 
 El valor de "Estrés" oscila entre 0 a 1. En términos simples, el estrés cuantifica cuán bien la configuración en el espacio reducido preserva las distancias originales. Un menor valor de estrés indica que la reducción de dimensionalidad ha logrado representar las distancias originales con mayor precisión.
 
-*MDS:
-*-Ventajas: No necesita de suposiciones previas sobre los datos.*
-
-*-Desventajas: -Se trata de un método computacionalmente costoso.
--La elección de los parámetros puede influir en el resultado final.*
+*MDS:*
+ - *Ventajas:*
+    - *No necesita de suposiciones previas sobre los datos.*
+ - *Desventajas:*
+   - *Se trata de un método computacionalmente costoso.*
+   - *La elección de los parámetros puede influir en el resultado final.*
 
 *CONCLUSION:*
-
 *Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.*
 
 ### PCA
@@ -280,12 +280,13 @@ fig
 ```
 
 *PCA:*
-*- Ventajas: El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos*
-*- Desventajas: El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas,
-*- Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
+ - *Ventajas:
+   - *El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos.*
+ - *Desventajas:
+  - *El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas.*
+  - *Cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.*
 
 *CONCLUSION:*
-
 *Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.*
 
 ### ISOMAP
@@ -359,11 +360,12 @@ fig
 ```
 
 *Isomap: *
-*- Ventajas: Es eficaz con datos cuyas variables mantienen relaciones no lineales.*
-*- Desventajas: Encontrar el parámetro k es muy difícil, nos puede llevar a determinar distancias incorrectas.*
+- *Ventajas:*
+  - *Es eficaz con datos cuyas variables mantienen relaciones no lineales.*
+- *Desventajas:*
+  - *Encontrar el parámetro k es muy difícil, nos puede llevar a determinar distancias incorrectas.*
 
-*CONCLUSION: 
-
+*CONCLUSION:*
 *Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la* 
 *varianza en los mismos.*
 
