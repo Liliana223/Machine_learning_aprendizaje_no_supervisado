@@ -312,7 +312,10 @@ iso_2d <- isomap(dist_matrix, k = 10, ndim = 2)  # Podemos usar distintos valore
 iso_3d <- isomap(dist_matrix, k = 10, ndim = 3)
 ```
 
-Calcular el estrés basado en la discrepancia de las distancias. El estrés se calcula como: sqrt(sum((distancias originales - distancias en baja dimensión)^2) / sum(distancias originales^2))
+Calcular el estrés basado en la discrepancia de las distancias. El estrés se calcula como: 
+```
+sqrt(sum((distancias originales - distancias en baja dimensión)^2) / sum(distancias originales^2))
+```
 
 **Valores Típicos y Guías Generales para el Estrés**
  - *0% a 0.05% (0 a 0.05): Estrés extremadamente bajo, excelente preservación de distancias.*
