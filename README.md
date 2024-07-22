@@ -371,7 +371,7 @@ fig
 
 ## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión precisión, sensibilidad, especificidad. 
 
-### Usando las dimensiones obtenidas por PCA
+Se usaron las dimensiones obtenidas por PCA
 
 Cargar las librerías necesarias
 ```
@@ -415,7 +415,7 @@ evaluate_model <- function(model_func, model_name, data_train1, data_test1) {
 }
 ```
 
-### Definir las funciones de los modelos
+Definir las funciones de los modelos
 ```
 svm_model1 <- function(data) {
   svm(Species ~ ., data = data, kernel = "linear")
@@ -469,11 +469,13 @@ ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
 
 ### Conclusiones:
 
+```
 **Model         Accuracy     Kappa**
  **1 SVM            0.9555556  0.9333333**
  **2 SVM Gaussiano  0.8888889  0.8333333**
  **3 Random Forest  0.9111111  0.8666667**
  **4 Naive Bayes    0.8666667  0.8000000**
+```
 
 *Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
   
