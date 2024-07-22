@@ -281,8 +281,7 @@ fig
 *Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la* 
 *varianza en los mismos.*
 
-## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión
-## precisión, sensibilidad, especificidad. 
+## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión precisión, sensibilidad, especificidad. 
 
 **Usando las dimensiones obtenidas por PCA**
 
