@@ -3,10 +3,10 @@
 En este repositorio se aplica métodos de aprendizaje no supervisado y métodos de aprendizaje supervisado en R
 
 *Carga de librerias*
-```library(readr)
+``library(readr)
 library(dplyr)
 library(tidyr)
-library(datasets)```
+library(datasets)``
 
 ## Depurado del conjunto de datos:
 data(iris)
