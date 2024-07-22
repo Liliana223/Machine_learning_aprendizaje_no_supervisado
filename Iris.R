@@ -374,7 +374,7 @@ plot_data1$Predicted <- results_svm1$predictions1
 
 ggplot(plot_data1, aes(x = PC1, y = PC2, color = Species)) +
   geom_point(aes(shape = Predicted), size = 3) +
-  ggtitle("Predicciones del Modelo PCA en el Conjunto de Prueba") +
+  ggtitle("Predicciones del Modelo SVM en el Conjunto de Prueba") +
   xlab("PC1") +
   ylab("PC2") +
   theme_minimal()
