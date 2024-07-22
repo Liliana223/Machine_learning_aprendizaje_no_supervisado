@@ -120,58 +120,75 @@ write.csv(normalized_data, "iris.csv", row.names = FALSE)
 
 ## Implementación de tres métodos de aprendizaje no supervisado
 
-**Reducción de Dimensionalidad:**
+### Reducción de Dimensionalidad:
 
 *Ventajas:*
-*Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado.*
-*Elimina ruido y reduce el riesgo de sobreajuste.*
+-Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado.
+-Elimina ruido y reduce el riesgo de sobreajuste.
 
 *Desventajas:*
-*Puede perder información importante en el proceso de reducción.*
-*No es siempre intuitivo interpretar los componentes o variables transformadas.*
+-Puede perder información importante en el proceso de reducción.
+-No es siempre intuitivo interpretar los componentes o variables transformadas.
 
 
-*Cargar los paquetes necesarios MDS y para realizar PCA*
+Cargar los paquetes necesarios MDS y para realizar PCA*
+```
 library(stats)   # Para la función cmdscale (MDS)
 library(ggplot2) # Para graficar
 library(plotly)  # Para graficar en 3D
 library(readr)   # Para leer archivos CSV
-
+```
 
 ### MDS
 
-
-*Leer los datos*
+Leer los datos
+```
 data <- read.csv("iris.csv")
+```
 
-*Seleccionar solo las características numéricas para el MDS*
+Seleccionar solo las características numéricas para el MDS
+```
 data_mds <- select(data, -Species)
+```
 
-*Calcular la matriz de distancias entre las muestras*
+Calcular la matriz de distancias entre las muestras
+```
 dist_matrix <- dist(data_mds, method = "euclidean")
+```
 
-*Realizar MDS para 2 componentes*
+Realizar MDS para 2 componentes
+```
 mds_2d <- cmdscale(dist_matrix, k = 3, eig = TRUE)
+```
 
-*Preparar los datos para graficar en 2D*
+Preparar los datos para graficar en 2D
+```
 data_2d <- as.data.frame(mds_2d$points)
 data_2d$Species <- data$Species
+```
 
-*Graficar los resultados en 2D*
+Graficar los resultados en 2D
+```
 ggplot(data_2d, aes(x = V1, y = V2, color = Species)) +
   geom_point() +
   ggtitle("MDS - 2 Componentes") +
   xlab("Componente 1") +
   ylab("Componente 2")
+```
 
-*Realizar MDS para 3 componentes*
+Realizar MDS para 3 componentes
+```
 mds_3d <- cmdscale(dist_matrix, k = 3, eig = TRUE)
+```
 
-*Preparar los datos para graficar en 3D*
+Preparar los datos para graficar en 3D
+```
 data_3d <- as.data.frame(mds_3d$points)
 data_3d$Species <- data$Species
+```
 
-*Usar plotly para un gráfico interactivo en 3D*
+Usar plotly para un gráfico interactivo en 3D
+```
 fig <- plot_ly(data_3d, x = ~V1, y = ~V2, z = ~V3, color = ~Species, colors = c('#BF382A', '#0C4B8E')) %>%
   add_markers() %>%
   layout(scene = list(xaxis = list(title = 'Componente 1'),
@@ -180,19 +197,22 @@ fig <- plot_ly(data_3d, x = ~V1, y = ~V2, z = ~V3, color = ~Species, colors = c(
          title = 'MDS - 3 Componentes')
 
 fig
+```
 
-*Calculo de la varianza explicada empleando el estrés*
-*Fórmula del estrés: sqrt(sum((dist(originales) - dist(proyectadas))^2) / sum(dist(originales)^2))*
+Calculo de la varianza explicada empleando el estrés
+Fórmula del estrés: sqrt(sum((dist(originales) - dist(proyectadas))^2) / sum(dist(originales)^2))
+```
 stress_2d <- sqrt(sum((dist_matrix - dist(as.matrix(mds_2d$points)))^2) / sum(dist_matrix^2))
 stress_3d <- sqrt(sum((dist_matrix - dist(as.matrix(mds_3d$points)))^2) / sum(dist_matrix^2))
+```
 
-*Imprimir los valores de estrés*
+Imprimir los valores de estrés
+```
 print(paste("Estrés para 2 componentes:", stress_2d))
 print(paste("Estrés para 3 componentes:", stress_3d))
+```
 
-*El valor de "Estrés" oscila entre 0 a 1. En términos simples, el estrés cuantifica cuán bien la configuración en el espacio reducido* 
-*preserva las distancias originales. Un menor valor de estrés indica que la reducción de dimensionalidad ha logrado representar las*
-*distancias originales con mayor precisión.*
+El valor de "Estrés" oscila entre 0 a 1. En términos simples, el estrés cuantifica cuán bien la configuración en el espacio reducido preserva las distancias originales. Un menor valor de estrés indica que la reducción de dimensionalidad ha logrado representar las distancias originales con mayor precisión.
 
 *MDS:* 
 *- Ventajas: No necesita de suposiciones previas sobre los datos.*
@@ -207,44 +227,58 @@ print(paste("Estrés para 3 componentes:", stress_3d))
 
 ### PCA
 
-*Seleccionar solo las características numéricas para el PCA
-data_pca <- select(data, -Species)*
+Seleccionar solo las características numéricas para el PCA
+```
+data_pca <- select(data, -Species)
+```
 
-*Realizar PCA*
+Realizar PCA
+```
 pca_result <- prcomp(data_pca, scale. = FALSE, center = TRUE)
+```
 
-*Ver la varianza explicada por cada componente principal*
+Ver la varianza explicada por cada componente principal
+```
 print(summary(pca_result))
+```
 
 *Con PCA tendríamos representado alrededor del 99% de los datos con tres componentes principales.*
 
-*PCA para 2 componentes principales*
-*Preparar los datos para graficar*
+PCA para 2 componentes principales
+Preparar los datos para graficar
+
+```
 data_2d1 <- data.frame(pca_result$x[,1:2])
 data_2d1$Species <- data$Species
+```
 
-*Graficar los resultados en 2D*
+Graficar los resultados en 2D
+```
 ggplot(data_2d1, aes(x = PC1, y = PC2, color = Species)) +
   geom_point() +
   ggtitle("PCA - 2 Componentes Principales") +
   xlab("Primer Componente Principal") +
   ylab("Segundo Componente Principal")
+```
 
-*PCA para 3 componentes principales*
-*Preparar los datos para graficar*
+PCA para 3 componentes principales
+
+```
+Preparar los datos para graficar*
 data_3d1 <- data.frame(pca_result$x[,1:3])
 data_3d1$Species <- data$Species
+```
 
-*Usar plotly para un gráfico interactivo en 3D*
+Usar plotly para un gráfico interactivo en 3D
+```
 fig <- plot_ly(data_3d1, x = ~PC1, y = ~PC2, z = ~PC3, color = ~Species, colors = c('#BF382A', '#0C4B8E')) %>%
   add_markers() %>%
   layout(scene = list(xaxis = list(title = 'PC1'),
                       yaxis = list(title = 'PC2'),
                       zaxis = list(title = 'PC3')),
          title = 'PCA - 3 Componentes Principales')
-
-*Mostrar el gráfico*
 fig
+```
 
 *PCA:*
 *- Ventajas: El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos*
@@ -258,20 +292,28 @@ cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) e
 
 ### ISOMAP
 
-*Cargar los paquetes necesarios*
+Cargar los paquetes necesarios
+```
 library(vegan) # Para isomap
+```
 
-*Seleccionar solo las características numéricas para Isomap*
+Seleccionar solo las características numéricas para Isomap
+```
 data_iso <- select(data, -Species)
+```
 
-*Calcular la matriz de distancias entre las muestras*
+Calcular la matriz de distancias entre las muestras
+```
 dist_matrix <- dist(data_iso, method = "euclidean")
+```
 
-*Realizar Isomap para 2 y 3 componentes*
+Realizar Isomap para 2 y 3 componentes
+```
 iso_2d <- isomap(dist_matrix, k = 10, ndim = 2)  # Podemos usar distintos valores de k vecinos más cercanos
 iso_3d <- isomap(dist_matrix, k = 10, ndim = 3)
+```
 
-*Calcular estrés basado en la discrepancia de las distancias*
+Calcular estrés basado en la discrepancia de las distancias
 *Estrés se calcula como: sqrt(sum((distancias originales - distancias en baja dimensión)^2) / sum(distancias originales^2))*
 *Valores Típicos y Guías Generales para el Estrés*
 *0% a 0.05% (0 a 0.05): Estrés extremadamente bajo, excelente preservación de distancias.*
@@ -279,27 +321,36 @@ iso_3d <- isomap(dist_matrix, k = 10, ndim = 3)
 *0.1% a 0.2% (0.1 a 0.2): Estrés bajo, buena representación.*
 *0.2% a 0.4% (0.2 a 0.4): Estrés moderado, representación aceptable.*
 *Mayor que 0.4% (>0.4): Estrés alto, la preservación de distancias puede ser inadecuada para algunas aplicaciones.*
+```
 stress_2d <- sqrt(sum((dist_matrix - dist(as.matrix(iso_2d$points)))^2) / sum(dist_matrix^2))
 stress_3d <- sqrt(sum((dist_matrix - dist(as.matrix(iso_3d$points)))^2) / sum(dist_matrix^2))
-
+```
+```
 print(paste("Estrés para 2 dimensiones:", stress_2d))
 print(paste("Estrés para 3 dimensiones:", stress_3d))
+```
 
-*Preparar datos para graficar*
+Preparar datos para graficar
+```
 data_2d2 <- as.data.frame(iso_2d$points)
 data_2d2$Species <- data$Species
-
+```
+```
 data_3d2 <- as.data.frame(iso_3d$points)
 data_3d2$Species <- data$Species
+```
 
-*Graficar Isomap en 2D*
+Graficar Isomap en 2D
+```
 ggplot(data_2d2, aes(x = Dim1, y = Dim2, color = Species)) +
   geom_point() +
   ggtitle("Isomap - 2 Dimensiones") +
   xlab("Componente 1") +
   ylab("Componente 2")
+```
   
-*Usar plotly para un gráfico interactivo en 3D*
+Usar plotly para un gráfico interactivo en 3D
+```
 fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colors = c('#BF382A', '#0C4B8E')) %>%
   add_markers() %>%
   layout(scene = list(xaxis = list(title = 'Componente 1'),
@@ -307,6 +358,7 @@ fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colo
                       zaxis = list(title = 'Componente 3')),
          title = 'Isomap - 3 Dimensiones')
 fig
+```
 
 *Isomap: *
 *- Ventajas: Es eficaz con datos cuyas variables mantienen relaciones no lineales.*
