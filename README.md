@@ -1,6 +1,6 @@
 # Aprendizaje_supervisado_y_no_supervisado
 
-En este repositorio se aplica métodos de aprendizaje no supervisado y métodos de aprendizaje supervisado en R
+En este repositorio se aplica métodos de aprendizaje supervisado y no supervisado en R. Se utilizó el conjunto de datos `Iris`:
 
 ## Implementación de tres métodos de aprendizaje no supervisado
 
@@ -13,7 +13,7 @@ En este repositorio se aplica métodos de aprendizaje no supervisado y métodos 
 *Desventajas:*
  - *Puede perder información importante en el proceso de reducción.*
  - *No es siempre intuitivo interpretar los componentes o variables transformadas.*
- - 
+   
 ### MDS
  - *Ventajas:*
     - *No necesita de suposiciones previas sobre los datos.*
@@ -72,4 +72,4 @@ Model         Accuracy     Kappa
 - *El modelo SVM tiene la mayor precisión y el mayor valor de kappa, siendo el más efectivo y consistente de todos los modelos.*
 - *El modelo Naive Bayes tiene los valores Accuracy y Kappa más bajos de todos los modelos comparados, sin embargo puede considerarse razonablemente bueno dependiendo del contexto.*
 
-Finalmente se grafica el modelo SMV: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/SVM2.png)
+Grafica el modelo SMV: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/SVM2.png)
