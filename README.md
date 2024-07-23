@@ -24,8 +24,8 @@ En este repositorio se aplica métodos de aprendizaje supervisado y no supervisa
 - Grafica de MDS para dos componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/MDS2.png)
 - Grafica de MDS para tres componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/MDS3.png)
 
-*CONCLUSION:*
-*Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.*
+CONCLUSION:
+Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.
 
 ### PCA
  - *Ventajas:*
@@ -37,12 +37,11 @@ En este repositorio se aplica métodos de aprendizaje supervisado y no supervisa
 - Grafica de PCA para dos componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/PCA2.png)
 - Grafica de PCA para tres componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/PCA3.png)
 
-*CONCLUSION:*
-*Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.*
+CONCLUSION:
+Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.
   
 ### ISOMAP
 
-*Isomap:*
 - *Ventajas:*
   - *Es eficaz con datos cuyas variables mantienen relaciones no lineales.*
 - *Desventajas:*
@@ -51,9 +50,8 @@ En este repositorio se aplica métodos de aprendizaje supervisado y no supervisa
 - Grafica de ISOMAP para dos componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/ISOMAP2.png)
 - Grafica de ISOMAP para tres componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/ISOMAP3.png)
 
-*CONCLUSION:*
-*Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la* 
-*varianza en los mismos.*
+CONCLUSION:
+Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la varianza en los mismos.
   
 ## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión precisión, sensibilidad, especificidad. 
 
@@ -67,9 +65,9 @@ Model         Accuracy     Kappa
 4 Naive Bayes    0.8666667  0.8000000
 ```
 ### Conclusiones:
-*Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:*
+Se analizaron los modelos SVM, SVM Gaussiano, Random Forest y Naive Bayes. De acuerdo al análisis, se obtuvieron los siguientes resultados:
 
-- *El modelo SVM tiene la mayor precisión y el mayor valor de kappa, siendo el más efectivo y consistente de todos los modelos.*
-- *El modelo Naive Bayes tiene los valores Accuracy y Kappa más bajos de todos los modelos comparados, sin embargo puede considerarse razonablemente bueno dependiendo del contexto.*
+- El modelo SVM tiene la mayor precisión y el mayor valor de kappa, siendo el más efectivo y consistente de todos los modelos.
+- El modelo Naive Bayes tiene los valores Accuracy y Kappa más bajos de todos los modelos comparados, sin embargo puede considerarse razonablemente bueno dependiendo del contexto.
 
 Grafica el modelo SMV: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/SVM2.png)
