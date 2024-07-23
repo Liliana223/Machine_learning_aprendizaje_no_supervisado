@@ -52,7 +52,7 @@ En este repositorio se aplica métodos de aprendizaje supervisado y no supervisa
 - Grafica de ISOMAP para tres componentes: ![](https://github.com/Liliana223/Aprendizaje_supervisado_y_no_supervisado/blob/main/Imagenes%20Iris/ISOMAP3.png)
 
 *CONCLUSION:*
-*Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la* 
+*Para este conjunto de datos trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la* 
 *varianza en los mismos.*
   
 ## Implementación de tres métodos de aprendizaje supervisado + cálculo de diferentes métricas de evaluación: matriz de confusión precisión, sensibilidad, especificidad. 
