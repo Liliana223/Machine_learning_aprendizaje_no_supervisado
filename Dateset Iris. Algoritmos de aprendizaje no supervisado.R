@@ -92,17 +92,6 @@ write.csv(normalized_data, "iris.csv", row.names = FALSE)
 # Implementación de tres métodos de aprendizaje no supervisado
 #################################################################
 
-### Reducción de Dimensionalidad: 
-
-# Ventajas:
-# Facilita la visualización y comprensión de datos complejos, puede mejorar el rendimiento de algoritmos de aprendizaje supervisado. 
-# Elimina ruido y reduce el riesgo de sobreajuste.
-
-# Desventajas:
-# Puede perder información importante en el proceso de reducción. 
-# No es siempre intuitivo interpretar los componentes o variables transformadas.
-
-
 # Cargar los paquetes necesarios MDS y para realizar PCA
 library(stats)   # Para la función cmdscale (MDS)
 library(ggplot2) # Para graficar
@@ -166,12 +155,6 @@ print(paste("Estrés para 3 componentes:", stress_3d))
 # preserva las distancias originales. Un menor valor de estrés indica que la reducción de dimensionalidad ha logrado representar las 
 # distancias originales con mayor precisión.
 
-# MDS: 
-# - Ventajas: No necesita de suposiciones previas sobre los datos
-
-# - Desventajas: -Se trata de un método computacionalmente costoso.
-# - La elección de los parámetros puede influir en el resultado final
-
 ## CONCLUSION: 
 
 # Trabajar con tres dimensiones nos proporcionaría una mayor certidumbre en los datos, ya que explicaría una mayor cantidad de la 
@@ -220,11 +203,6 @@ fig <- plot_ly(data_3d1, x = ~PC1, y = ~PC2, z = ~PC3, color = ~Species, colors 
 
 # Mostrar el gráfico
 fig
-
-# PCA: 
-# - Ventajas: El PCA elimina correlaciones entre las variables, mejorando la independencia de los datos
-# - Desventajas: El PCA se utiliza únicamente sobre conjuntos de datos cuyas variables están linealmente correlacionadas, 
-#  cuando una variable aumente (o disminuya), la otra debe aumentar (o disminuir) en una proporción que sea constante.
 
 ## CONCLUSION: 
 
@@ -284,10 +262,6 @@ fig <- plot_ly(data_3d2, x = ~Dim1, y = ~Dim2, z = ~Dim3, color = ~Species, colo
                       zaxis = list(title = 'Componente 3')),
          title = 'Isomap - 3 Dimensiones')
 fig
-
-# Isomap: 
-# - Ventajas: Es eficaz con datos cuyas variables mantienen relaciones no lineales.
-# - Desventajas: Encontrar el parámetro k es muy difícil, nos puede llevar a determinar distancias incorrectas.
 
 ## CONCLUSION: 
 
