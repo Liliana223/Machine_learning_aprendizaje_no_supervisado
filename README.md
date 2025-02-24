@@ -1,4 +1,4 @@
-# Aprendizaje_supervisado_y_no_supervisado
+# Aprendizaje no supervisado
 
 En este repositorio se aplica tres métodos de aprendizaje no supervisado en R. Se utilizó el conjunto de datos `iris`: https://github.com/Liliana223/Machine_learning_aprendizaje_supervisado_y_no_supervisado/blob/main/Iris.R
 
